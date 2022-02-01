@@ -1,0 +1,52 @@
+﻿@page
+@model ManufacturerManagerTS.FrontEnd.Pages.WidgetPages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Widget</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Widget.WidgetId" />
+            <div class="form-group">
+                <label asp-for="Widget.Name" class="control-label"></label>
+                <input asp-for="Widget.Name" class="form-control" autofocus />
+                <span asp-validation-for="Widget.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Widget.Manufacturer" class="control-label"></label>
+                <select asp-for="Widget.ManufacturerId" class="form-control" asp-items="@Model.WidgetPagesValues.ManufacturerSelectList()"></select>
+                <span asp-validation-for="Widget.ManufacturerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Widget.ColourId" class="control-label"></label>
+                <select asp-for="Widget.ColourId" class="form-control" asp-items="@Model.WidgetPagesValues.ColoursSelectList()"></select>
+                <span asp-validation-for="Widget.ColourId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Widget.ColourJustificationId" class="control-label"></label>
+                <select asp-for="Widget.ColourJustificationId" class="form-control" asp-items="@Model.WidgetPagesValues.ColourJustificationsSelectList()"></select>
+                <span asp-validation-for="Widget.ColourJustificationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Widget.StatusId" class="control-label"></label>
+                <select asp-for="Widget.StatusId" class="form-control" asp-items="@Model.WidgetPagesValues.StatusesSelectList()"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
