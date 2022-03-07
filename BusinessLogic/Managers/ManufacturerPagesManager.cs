@@ -33,8 +33,6 @@ namespace ManufacturerManagerTS.BusinessLogic.Managers
         {
             var manufacturer = _mapper.Map<Manufacturer>(await _manufacturerHandler.GetManufacturerById(id));
 
-            if (manufacturer == null) return new Results<Manufacturer> { HttpStatusCode = HttpStatusCode.NotFound };
-
             return manufacturer == null
                 ? new Results<Manufacturer> { HttpStatusCode = HttpStatusCode.NotFound }
                 : new Results<Manufacturer> { Entity = manufacturer, HttpStatusCode = HttpStatusCode.OK };

@@ -5,6 +5,8 @@ GO
 IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'ManufacturerManagerTS')
 	ALTER DATABASE [ManufacturerManagerTS] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE
 GO
+
+IF EXISTS (SELECT * FROM sys.databases WHERE NAME = 'ManufacturerManagerTS')
 	DROP DATABASE ManufacturerManagerTS
 GO
 
